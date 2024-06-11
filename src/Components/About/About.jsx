@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { ThemeContext } from "../../App"; // Adjusted path
 import "./About.css";
 import about_img from "../../assets/about1.jpg";
-// import play_icon from "../../assets/play-icon.png";
 
 const About = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="about" id="about">
+    <div className={`about ${theme}`} id="about">
       <div className="about-left">
         <img src={about_img} alt="" className="about-img" data-aos="slide-right" />
-        {/* <img src={play_icon} alt='' className='play-icon'></img> */}
       </div>
-      <div className="about-right" id="heading" data-aos="slide-left" >
+      <div className="about-right" id="heading" data-aos="slide-left">
         <h2 className='about-heading'>Bridging the gap between ideas and investments</h2>
         <div className="about-right-div2">
           <p>

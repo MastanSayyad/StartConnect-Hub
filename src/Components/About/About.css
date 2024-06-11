@@ -1,4 +1,4 @@
-.about{
+.about {
   margin: 100px auto;
   display: flex;
   justify-items: center;
@@ -6,15 +6,11 @@
   width: 90%;
 }
 
-.about-left{
+.about-left {
   flex-basis: 40%;
 }
 
-#dark .about-heading {
-  color: white;
-}
-
-.about-right{
+.about-right {
   flex-basis: 56%;
   display: flex;
   flex-direction: column;
@@ -22,30 +18,38 @@
   text-align: center;
 }
 
-.about-img{
+.about-img {
   width: 100%;
   border-radius: 10px;
 }
 
-.about h3{
+.about h3 {
   font-weight: 600;
   font-weight: 16px;
-  color: #212EA0;
 }
 
-.about h2{
+.about h2 {
   font-weight: 600;
   font-size: 35px;
   margin: 10px 0;
   max-width: 400px;
-  color: black;
   text-align: center;
-  
 }
 
-.about p{
-  color: #676767;
+.about p {
   margin-bottom: 15px;
+}
+
+/* Light Theme */
+.light .about-heading,
+.light p {
+  color: #333;
+}
+
+/* Dark Theme */
+.dark .about-heading,
+.dark p {
+  color: white;
 }
 
 @media (max-width: 600px) {
@@ -54,20 +58,20 @@
     align-items: center; /* Center align items */
   }
 
-  #heading{
-      display: flex;
-      justify-content: center;
+  #heading {
+    display: flex;
+    justify-content: center;
   }
 
   .about-left,
   .about-right {
     flex-basis: 100%;
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
     flex-direction: column;
   }
 
   .about-img {
-    border-radius: 15px; 
+    border-radius: 15px;
   }
 
   .about h2 {
@@ -76,6 +80,6 @@
   }
 
   .about p {
-    text-align: center; 
+    text-align: center;
   }
 }
