@@ -100,7 +100,6 @@ const Home = () => {
         <About />
         <Testimonials />
         <Accordian /> 
-        <Title subTitle="Contact Us" title="Get in Touch" />
         <Contact />
       </div>
     </>

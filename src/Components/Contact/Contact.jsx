@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { ThemeContext } from "../../App.jsx";
 import "./Contact.css";
 import msg_icon from "../../assets/msg-icon.png";
 import mail_icon from "../../assets/mail-icon.png";
@@ -7,7 +8,8 @@ import location_icon from "../../assets/location-icon.png";
 import white_arrow from "../../assets/white-arrow.png";
 
 const Contact = () => {
-  const [result, setResult] = React.useState("");
+  const [result, setResult] = useState("");
+  const { darkMode } = useContext(ThemeContext);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -33,60 +35,64 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact" id="contact">
-      <div className="contact-col">
-        <h3 className="send">
-          Send us a message<img src={msg_icon} alt=""></img>
-        </h3>
-        <p>
-          Feel free to reach out through contact form. Your feedback, questions
-          and suggestions are important to us.
-        </p>
-        <ul>
-          <li>
-            <img src={mail_icon} alt=""></img>Contact@StartConnectHub.in
-          </li>
-          <li>
-            <img src={phone_icon} alt=""></img>+91 1234567890
-          </li>
-          <li>
-            <img src={location_icon} alt=""></img>Address xyz
-          </li>
-        </ul>
-      </div>
-      <div className="contact-col">
-        <form onSubmit={onSubmit}>
-          <label>Your name</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your name"
-            required
-          ></input>
-          <label>Phone number</label>
-          <input
-            type="tel"
-            name="phone"
-            pattern="[0-9]*"
-            minLength="10"
-            maxLength="10"
-            placeholder="Enter your phone"
-            required
-          ></input>
-          <label>Write your message here</label>
-          <textarea
-            name="message"
-            rows="6"
-            placeholder="Enter your message"
-            required
-          ></textarea>
-          <div className="btn-div">
-            <button type="submit" className="btn dark-btn">
-              Submit <img src={white_arrow}></img>
-            </button>
-          </div>
-        </form>
-        <span>{result}</span>
+    <div className={`contact-container ${darkMode ? "dark-mode" : ""}`}>
+      <h1>Contact Us</h1>
+      <h2>Get In Touch</h2>
+      <div className="contact" id="contact">
+        <div className="contact-col">
+          <h3 className="send">
+            Send us a message<img src={msg_icon} alt=""></img>
+          </h3>
+          <p>
+            Feel free to reach out through contact form. Your feedback, questions
+            and suggestions are important to us.
+          </p>
+          <ul>
+            <li>
+              <img src={mail_icon} alt=""></img>Contact@StartConnectHub.in
+            </li>
+            <li>
+              <img src={phone_icon} alt=""></img>+91 1234567890
+            </li>
+            <li>
+              <img src={location_icon} alt=""></img>Address xyz
+            </li>
+          </ul>
+        </div>
+        <div className="contact-col">
+          <form onSubmit={onSubmit}>
+            <label>Your name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              required
+            ></input>
+            <label>Phone number</label>
+            <input
+              type="tel"
+              name="phone"
+              pattern="[0-9]*"
+              minLength="10"
+              maxLength="10"
+              placeholder="Enter your phone"
+              required
+            ></input>
+            <label>Write your message here</label>
+            <textarea
+              name="message"
+              rows="6"
+              placeholder="Enter your message"
+              required
+            ></textarea>
+            <div className="btn-div">
+              <button type="submit" className="btn dark-btn">
+                Submit <img src={white_arrow}></img>
+              </button>
+            </div>
+          </form>
+          <span>{result}</span>
+        </div>
       </div>
     </div>
   );
